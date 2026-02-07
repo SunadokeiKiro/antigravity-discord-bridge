@@ -189,18 +189,18 @@ class BridgeBot(discord.Client):
             new_chat_script = """
                 -- Open Command Palette (Cmd+Shift+L)
                 keystroke "l" using {command down, shift down}
-                delay 1.0
+                delay 1.5
                 -- Type "New Chat"
                 keystroke "New Chat"
-                delay 0.5
+                delay 0.8
                 -- Confirm (Enter)
                 keystroke return
-                delay 1.0
+                delay 1.5
             """ if should_new_chat else ""
 
             script = f"""
             tell application "Antigravity" to activate
-            delay 1.0
+            delay 1.5
             tell application "System Events"
                 {new_chat_script}
                 -- Paste Instruction
