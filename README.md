@@ -37,14 +37,11 @@ cp .env.example .env
 
 ```json
 {
-  "mappings": {
-    "123456789012345678": {
-      "path": "/Users/username/git/my-android-app",
-      "name": "MyApp"
-    }
-  }
+  "123456789012345678": "/Users/username/git/my-android-app",
+  "987654321098765432": "/Users/username/git/another-project"
 }
 ```
+※ `{"mappings": { ... }}` の形式でも記述可能です（詳細設定を行う場合）。
 
 ## 🎮 使い方 (Usage)
 

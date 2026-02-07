@@ -26,7 +26,7 @@ Discordをインターフェースとすることで、場所を選ばず、チ�
 ## 3. 実装要件 (Requirements)
 
 ### 1) マルチプロジェクト管理
-- `mapping.json` でDiscordチャンネルIDとローカルパスを紐付ける。
+- `mapping.json` でDiscordチャンネルIDとローカルパスを紐付ける（`{"id": "path"}` 形式）。
 - `uv` のキャッシュ機能を活用し、全プロジェクトでライブラリを高速共有する。
 
 ### 2) 自律実行 (Autonomous Flow)
