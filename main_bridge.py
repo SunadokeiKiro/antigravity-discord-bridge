@@ -187,15 +187,15 @@ class BridgeBot(discord.Client):
             # Or ensuring we are in the right window (handled by agy -n)
             
             new_chat_script = """
-                -- Open Command Palette (Cmd+Shift+L)
-                keystroke "l" using {command down, shift down}
+                -- Open Command Palette (Cmd+Shift+P)
+                keystroke "p" using {command down, shift down}
                 delay 1.5
                 -- Type "New Chat"
                 keystroke "New Chat"
-                delay 0.8
+                delay 1.0
                 -- Confirm (Enter)
-                keystroke return
-                delay 1.5
+                key code 36
+                delay 2.0
             """ if should_new_chat else ""
 
             script = f"""
@@ -207,7 +207,7 @@ class BridgeBot(discord.Client):
                 keystroke "v" using command down
                 delay 1.0
                 -- Enter to Submit
-                keystroke return
+                key code 36
             end tell
             """
             
