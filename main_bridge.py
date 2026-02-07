@@ -184,28 +184,29 @@ class BridgeBot(discord.Client):
             # If should_new_chat is False: Paste -> Enter (Just focus and paste)
             
             # NOTE: "agy -n" above activates the app, so we just need to target the front window probably?
-            # Or ensuring we are in the right window (handled by agy -n)
             
-            new_chat_script = """
-                -- Open Command Palette (Cmd+Shift+P)
-                keystroke "p" using {command down, shift down}
-                delay 1.5
-                -- Type "New Chat"
-                keystroke "New Chat"
-                delay 1.0
-                -- Confirm (Enter)
-                key code 36
-                delay 2.0
-            """ if should_new_chat else ""
-
+            # Simplified Logic based on user feedback:
+            # - Cmd+Shift+L focuses the chat input correctly
+            # - We should NOT type "New Chat" manually into the input
+            
             script = f"""
             tell application "Antigravity" to activate
             delay 1.5
             tell application "System Events"
-                {new_chat_script}
+                -- Focus Chat Input (Cmd+Shift+L)
+                keystroke "l" using {{command down, shift down}}
+                delay 1.0
+                
+                -- Select All & Delete (Optional cleanup to ensure fresh prompt)
+                keystroke "a" using command down
+                delay 0.3
+                keystroke delete
+                delay 0.3
+
                 -- Paste Instruction
                 keystroke "v" using command down
                 delay 1.0
+                
                 -- Enter to Submit
                 key code 36
             end tell
