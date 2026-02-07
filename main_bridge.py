@@ -200,7 +200,7 @@ class BridgeBot(discord.Client):
                 -- Select All & Delete (Optional cleanup to ensure fresh prompt)
                 keystroke "a" using command down
                 delay 0.3
-                keystroke delete
+                key code 51 -- Delete key
                 delay 0.3
 
                 -- Paste Instruction
